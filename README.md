@@ -1,12 +1,12 @@
 # FetchCrestMarket
 
-**TODO: Add poolboy to handle request (20 connection in parallel)**
-**      Add Walker through needed items**
-**      Add DB connection**
-**      Add Tasks that handle walking through pages and preparing the data for DB**
-**      Add config file**
-**      Generate walking item through CREST**
-**      Add dealing with SDE**
+**TODO: *Add poolboy to handle request (20 connection in parallel)**
+**      *Add Walker through needed items**
+**      *Add DB connection**
+**      *Add Tasks that handle walking through pages and preparing the data for DB**
+**      *Add config file**
+**      *Generate walking item through CREST**
+**      *Add dealing with SDE**
 
 ## Description
 
