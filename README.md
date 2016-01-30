@@ -1,19 +1,14 @@
 # FetchCrestMarket
 
-**TODO: Add description**
+**TODO: Add poolboy to handle request (20 connection in parallel)
+        Add Walker through needed items
+        Add DB connection
+        Add Tasks that handle walking through pages and preparing the data for DB
+        Add config file
+        Generate walking item through CREST
+        Add dealing with SDE**
 
-## Installation
+## Description
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
-  1. Add fetch_crest_market to your list of dependencies in `mix.exs`:
-
-        def deps do
-          [{:fetch_crest_market, "~> 0.0.1"}]
-        end
-
-  2. Ensure fetch_crest_market is started before your application:
-
-        def application do
-          [applications: [:fetch_crest_market]]
-        end
+This application is aimed at creating an independant CREST fetcher for EVE Prosper show.
+It aimed to be independent and be only limited by CREST Rate limit.
