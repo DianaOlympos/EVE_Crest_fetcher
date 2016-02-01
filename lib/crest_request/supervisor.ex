@@ -8,8 +8,8 @@ defmodule CrestRequest.Supervisor do
   def init([]) do
 
     children = [
-      worker(Task, [CrestRequest.Limiter, :reset_limit, [], name:CrestRequest.Limiter]),
-      worker(Agent, [CrestRequest.Limit, :init_limit, [0], name:CrestRequest.Limit])
+      worker(CrestRequest.Limiter, [CrestRequest.Limiter]),
+      worker(Agent, [CrestRequest.Limit, :init_limit, [0], name: CrestRequest.Limit])
     ]
 
     opts = [strategy: :one_for_one, name: CrestRequest.Supervisor]

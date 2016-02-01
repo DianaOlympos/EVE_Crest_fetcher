@@ -1,4 +1,9 @@
 defmodule CrestRequest.Limiter do
+  import Process, only: [send_after: 3]
+
+  def start_link() do
+    reset_limit()
+  end
 
   @doc """
   Send a message every sec to reset the Agent count
