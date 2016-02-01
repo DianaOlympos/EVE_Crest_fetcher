@@ -1,0 +1,1 @@
+config :fetch_crest_market, crest_rate: 150
