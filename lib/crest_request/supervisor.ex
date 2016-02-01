@@ -8,6 +8,7 @@ defmodule CrestRequest.Supervisor do
   def init([]) do
 
     children = [
+      supervisor(CrestRequest.PoolSupervisor,[]),
       worker(CrestRequest.Limiter, [CrestRequest.Limiter]),
       worker(Agent, [CrestRequest.Limit, :init_limit, [0], name: CrestRequest.Limit])
     ]
