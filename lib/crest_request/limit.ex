@@ -10,6 +10,7 @@ defmodule CrestRequest.Limit do
     else
       {:true,state+1}
     end
+  end
 
   def reset() do
     0
