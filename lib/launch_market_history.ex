@@ -1,0 +1,2 @@
+defmodule LaunchMarketHistory do
+end
