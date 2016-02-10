@@ -32,7 +32,8 @@ defmodule FetchCrestMarket.Mixfile do
   defp deps do
     [
       {:poolboy, "~> 1.5"},
-      {:httpoison, "~> 0.8.0"}
+      {:httpoison, "~> 0.8.0"},
+      {:poison, "~> 2.0"}
     ]
   end
 end
