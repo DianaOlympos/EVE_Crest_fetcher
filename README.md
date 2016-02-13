@@ -1,13 +1,19 @@
 # FetchCrestMarket
 
-##TODO
-  - **Add poolboy to handle request (20 connection in parallel)**
-  - **Add Walker through needed items**
-  - **Add DB connection**
-  - **Add Tasks that handle walking through pages and preparing the data for DB**
-  - **Add config file**
-  - **Generate walking item through CREST**
-  - **Add dealing with SDE**
+###TODO
+  - [x] Add poolboy to handle request (20 connection in parallel)
+  - [ ] Add Tasks that handle walking through pages
+  - [ ] Add a layer preparing data for sink
+  - [ ] Add prosper mysql as a Sink
+  - [ ] Add CSV as a Sink
+  - [ ] Add email in cas of error
+  - [ ] Add logging
+  - [ ] Add metrics
+  - [ ] Add config file for prod (conform)
+  - [ ] Generate walking item through CREST (linked to history)
+  - [ ] Add dealing with SDE
+  - [x] Add agent to keep partial data and their logic
+  - [x] Add struct to handle JSON requests
 
 ## Description
 
