@@ -25,8 +25,8 @@ defmodule MarketTypes.Registry do
   @doc """
   Ensures there is a bucket associated to the given `id` in `server`.
   """
-  def create(server, id) do
-    GenServer.call(server, {:create, id})
+  def create(server, id, pageCount,totalCount, items_list) do
+    GenServer.call(server, {:create, id, pageCount,totalCount, items_list})
   end
 
   @doc """
@@ -44,12 +44,12 @@ defmodule MarketTypes.Registry do
     {:ok, {types, refs}}
   end
 
-  def handle_call({:create, id}, _from, {types, refs}) do
+  def handle_call({:create, id, pageCount,totalCount, items_list}, _from, {types, refs}) do
     case lookup(types, id) do
       {:ok, pid} ->
         {:reply, pid, {types, refs}}
       :error ->
-        {:ok, pid} = MarketHistory.Types.Supervisor.start_types()
+        {:ok, pid} = MarketHistory.Types.Supervisor.start_types(id, pageCount,totalCount, items_list)
         ref = Process.monitor(pid)
         refs = Map.put(refs, ref, id)
         :ets.insert(types, {id, pid})
