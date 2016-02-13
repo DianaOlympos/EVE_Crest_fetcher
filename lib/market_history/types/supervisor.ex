@@ -8,8 +8,8 @@ defmodule MarketHistory.Types.Supervisor do
     Supervisor.start_link(__MODULE__, :ok, name: @name)
   end
 
-  def start_types do
-    Supervisor.start_child(@name, [])
+  def start_types(id, pageCount,totalCount, items_list) do
+    Supervisor.start_child(@name, [id, pageCount,totalCount, items_list])
   end
 
   def init(:ok) do
