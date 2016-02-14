@@ -6,8 +6,8 @@ defmodule CrestRequest.Worker do
   @doc """
   Starts the worker.
   """
-  def start_link() do
-    GenServer.start_link(__MODULE__, :ok)
+  def start_link([]) do
+    :gen_server.start_link(__MODULE__, [], [])
   end
 
   @doc """
@@ -20,8 +20,8 @@ defmodule CrestRequest.Worker do
 
   ## Server Callbacks
 
-  def init(_state) do
-    :ok
+  def init(state) do
+    {:ok, state}
   end
 
   def handle_call([path, :public], _from, _state) do

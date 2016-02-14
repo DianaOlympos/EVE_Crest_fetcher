@@ -9,6 +9,7 @@ defmodule FetchCrestMarket do
     children = [
       # Define workers and child supervisors to be supervised
       # worker(FetchCrestMarket.Worker, [arg1, arg2, arg3]),
+      supervisor(FetchCrestMarket.Supervisor,[])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

@@ -1,4 +1,4 @@
-defmodule MarketTypes.Registry do
+defmodule MarketHistory.Registry do
   use GenServer
 
   ## Client API

@@ -1,15 +1,14 @@
 defmodule MarketHistory do
-  import CrestRequest.Worker, only: [request_crest: 3]
-  import MarketTypes.Registry, only: [create: 5]
+  import MarketHistory.Registry, only: [create: 5]
 
-  def start_region(region_name) do
+  def start_region() do
     address = Application.get_env(:fetch_crest_market,:crest_public_address)<>"regions/10000002/types/34/history/"
 
     case :poolboy.transaction(:crest_pool, fn(pid)->
-      request_crest(pid,address,:public)
+      CrestRequest.Worker.request_crest(pid,address,:public)
     end) do
       {:ok,result}-> stock_body(result)
-      {:error,_}-> start_region(region_name)
+      {:error,_}-> start_region()
     end
 
   end

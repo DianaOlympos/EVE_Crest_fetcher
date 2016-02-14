@@ -1,5 +1,6 @@
 defmodule MarketHistory.Supervisor do
   use Supervisor
+  import MarketHistory
 
   def start_link do
     Supervisor.start_link(__MODULE__, :ok)
@@ -7,10 +8,9 @@ defmodule MarketHistory.Supervisor do
 
   def init(:ok) do
     children = [
-      worker(MarketHistory.Registry, [MarketHistory.Registry]),
-      supervisor(MarketHistory.Types.Supervisor, [])
+      worker(MarketHistory,[],function: start_region)
     ]
 
-    supervise(children, strategy: :rest_for_one)
+    supervise(children, strategy: :one_for_one)
   end
 end

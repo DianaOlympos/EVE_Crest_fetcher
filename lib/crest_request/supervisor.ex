@@ -9,11 +9,11 @@ defmodule CrestRequest.Supervisor do
 
     children = [
       supervisor(CrestRequest.PoolSupervisor,[]),
-      worker(CrestRequest.Limiter, [CrestRequest.Limiter]),
-      worker(Agent, [CrestRequest.Limit, :init_limit, [0], name: CrestRequest.Limit])
+      worker(Task, [CrestRequest.Limiter, :reset_limit,[]], name: CrestRequest.Limiter),
+      worker(Agent, [CrestRequest.Limit, :init_limit, [0]], name: CrestRequest.Limit)
     ]
 
     opts = [strategy: :one_for_one, name: CrestRequest.Supervisor]
-    Supervisor.start_link(children, opts)
+    supervise(children, opts)
   end
 end
